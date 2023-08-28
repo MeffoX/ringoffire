@@ -69,6 +69,11 @@ constructor(private route: ActivatedRoute, public dialog: MatDialog) {
   }
 
 
+  editPlayer(playerID:number) {
+    console.log('Edit Player', playerID);
+  }
+
+
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 
