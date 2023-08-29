@@ -1,13 +1,4 @@
 {
-  "targets": {
-    "ring-of-fire-c9dda": {
-      "hosting": {
-        "ringoffire": [
-          "ring-of-fire-c9dda"
-        ]
-      }
-    }
-  },
   "projects": {
     "default": "ring-of-fire-c9dda"
   }
