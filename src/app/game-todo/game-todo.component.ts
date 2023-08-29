@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Game } from 'src/models/game';
 
 @Component({
   selector: 'app-game-todo',
@@ -24,6 +25,7 @@ export class GameTodoComponent {
 
   title = '';
   description = '';
+  game: Game;
   @Input() card: string;
 
 
