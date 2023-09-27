@@ -33,7 +33,7 @@ class="player-position hide-mobile"></app-player>
     </div>
 </div>
 
-<app-game-todo *ngIf="!gameOver" [card]="game.currentCard" class="pin-bottom"></app-game-todo>
+<app-game-todo [players]="game.players" *ngIf="!gameOver" [card]="game.currentCard" class="pin-bottom"></app-game-todo>
 
 <button *ngIf="!gameOver" mat-fab color="primary" (click)="openDialog()" class="btn-add">
     <mat-icon>add</mat-icon>

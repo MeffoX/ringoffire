@@ -77,24 +77,31 @@ constructor(private route: ActivatedRoute, public dialog: MatDialog) {
     }
   }
 
-
+  
   editPlayer(playerID:number) {
     console.log('Edit Player', playerID);
+    const playerName = this.game.players[playerID];
 
-    const dialogRef = this.dialog.open(EditPlayerComponent);
-    dialogRef.afterClosed().subscribe(onchange => {
-      console.log('Received change', onchange);
-      if(onchange){
-        if(onchange == 'DELETE') {
-          this.game.player_images.splice(playerID, 1);
-          this.game.players.splice(playerID, 1);
-        } else {
-          this.game.player_images[playerID] = onchange;
-        }
-      this.saveGame();
-      }
+    const dialogRef = this.dialog.open(EditPlayerComponent, {
+      data: { playerName: playerName }
     });
-  }
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Received change', result);
+      if (result) {
+          if (result === 'DELETE') {
+              this.game.player_images.splice(playerID, 1);
+              this.game.players.splice(playerID, 1);
+          } else {
+              this.game.players[playerID] = result.playerName;
+              this.game.player_images[playerID] = result.playerImage;
+          }
+          this.saveGame();
+      }
+  });
+  
+}
+
 
 
   openDialog(): void {

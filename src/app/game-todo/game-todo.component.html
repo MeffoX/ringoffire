@@ -1,6 +1,8 @@
-<mat-card>
-    <mat-card-title> {{ card ? title : 'Please pick a card' }} </mat-card-title>
-
+  <mat-card>
+    <mat-card-title [style.color]="players.length > 0 ? 'black' : 'red'">
+        {{ players.length > 0 ? (card ? title : 'Please pick a card') : 'Please add Players' }}
+    </mat-card-title>
+  
     <mat-card-content> {{ description }} </mat-card-content>
   </mat-card>
   

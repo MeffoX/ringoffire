@@ -8,25 +8,27 @@ import { Game } from 'src/models/game';
 })
 export class GameTodoComponent {
   cardAction = [
-    { title: 'Waterfall', description: 'Everyone has to start drinking at the same time. As soon as player 1 stops drinking, player 2 may stop drinking. Player 3 may stop as soon as player 2 stops drinking, and so on.' },
+    { title: 'Waterfall', description: 'All players start drinking. In a clockwise direction, players may only stop drinking when the person sitting to the right of them has finished his waterfall. The player who draws the ace may stop drinking first (when he wants).' },
     { title: 'You', description: 'You decide who drinks' },
-    { title: 'Me', description: 'Congrats! Drink a shot!' },
+    { title: 'Me', description: 'Congrats! Drink a shot!' }, 
     { title: 'Category', description: 'Come up with a category (e.g. Colors). Each player must enumerate one item from the category.' },
-    { title: 'Bust a jive', description: 'Player 1 makes a dance move. Player 2 repeats the dance move and adds a second one. ' },
+    { title: 'Thumbmaster', description: 'Touch the tabletop with your thumb. The player who touches the table last must take a sip. drink.' },
     { title: 'Chicks', description: 'All girls drink.' },
     { title: 'Heaven', description: 'Put your hands up! The last player drinks!' },
     { title: 'Mate', description: 'Pick a mate. Your mate must always drink when you drink and the other way around.' },
-    { title: 'Thumbmaster', description: '' },
+    { title: 'Rhyme', description: 'Pick a word. In a clockwise direction, the other players have to find a rhyme for it. Whoever repeats a word or can no longer name a new rhyme must drink a sip.' },
     { title: 'Men', description: 'All men drink.' },
-    { title: 'Quizmaster', description: '' },
-    { title: 'Never have i ever...', description: 'Say something you nnever did. Everyone who did it has to drink.' },
-    { title: 'Rule', description: 'Make a rule. Everyone needs to drink when he breaks the rule.' },
+    { title: 'Rule', description: 'Think up a new rule that will apply until the end of the game. The rule may not override any other' },
+    { title: 'Never have i ever...', description: 'Say something you never did. Everyone who did it has to drink.' },
+    { title: 'Kingscup', description: 'Pour a drink of your choice into the Kingscup. If the fourth king is drawn, the player must empty the Kingscup in the middle of the game.' },
   ];
 
   title = '';
   description = '';
   game: Game;
   @Input() card: string;
+  @Input() players: any[] = [];
+
 
 
   ngOnChanges(): void {
