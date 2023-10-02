@@ -81,9 +81,10 @@ constructor(private route: ActivatedRoute, public dialog: MatDialog) {
   editPlayer(playerID:number) {
     console.log('Edit Player', playerID);
     const playerName = this.game.players[playerID];
+    const playerImage = this.game.player_images[playerID]; // Holen Sie das aktuelle Bild
 
     const dialogRef = this.dialog.open(EditPlayerComponent, {
-      data: { playerName: playerName }
+      data: { playerName: playerName, playerImage: playerImage }  // Übergeben Sie den Namen und das Bild
     });
 
     dialogRef.afterClosed().subscribe(result => {

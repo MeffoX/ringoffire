@@ -20,7 +20,8 @@ export class EditPlayerComponent implements OnInit {
 
 
   ngOnInit(): void {
-      this.playerName = this.data.playerName;
+    this.playerName = this.data.playerName;
+    this.selectedImage = this.data.playerImage || this.allProfilePictures[0]; 
   }
 
 

@@ -1,8 +1,6 @@
 <h1 mat-dialog-title>Edit Player</h1>
 
 
-
-
 <img 
     class="profile-picture" 
     [class.selected-image]="selectedImage === picture"
@@ -10,14 +8,16 @@
     *ngFor="let picture of allProfilePictures" 
     src="assets/img/{{ picture }}">
 
-<div class="player-name-edit">
-  <mat-form-field appearance="fill">
-      <mat-label>Player Name</mat-label>
-      <input matInput [(ngModel)]="playerName" [placeholder]="playerName">
-  </mat-form-field>
-</div>
+    <div class="player-name-edit">
+        <mat-form-field appearance="fill">
+            <mat-label>Player Name</mat-label>
+            <input matInput [(ngModel)]="playerName" [placeholder]="playerName" maxlength="9">
+            <mat-hint align="end">{{playerName?.length || 0}}/9</mat-hint>
+        </mat-form-field>
+      </div>
+      
 
 <div mat-dialog-actions>
-    <button mat-button (click)="saveChanges()">Edit</button>
+    <button mat-button [disabled]="!playerName || playerName.length == 0 || playerName.length > 9" [mat-dialog-close]="playerName" cdkFocusInitial (click)="saveChanges()">Edit</button>
     <button mat-button color="warn" [mat-dialog-close]="'DELETE'" cdkFocusInitial>Delete</button>
 </div>

@@ -3,10 +3,11 @@
   <p>Please enter the name of a player</p>
   <mat-form-field>
     <mat-label>Name</mat-label>
-    <input matInput [(ngModel)]="name">
+    <input matInput [(ngModel)]="name" maxlength="9">
+    <mat-hint align="end">{{name?.length || 0}}/9</mat-hint>
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [disabled]="name.length == 0" [mat-dialog-close]="name" cdkFocusInitial>Ok</button>
+  <button mat-button [disabled]="!name || name.length == 0 || name.length > 9" [mat-dialog-close]="name" cdkFocusInitial>Ok</button>
 </div>
